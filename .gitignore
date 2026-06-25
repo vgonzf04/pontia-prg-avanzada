@@ -11,3 +11,5 @@ wheels/
 .venv
 *.toml
 .python-version
+
+*DS_Store*
