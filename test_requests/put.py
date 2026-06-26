@@ -1,6 +1,6 @@
 import requests
 
-id = input("Introduce un id: ")
+id = 2
 
 url = f"http://127.0.0.1:8000/tasks/{id}"
 
