@@ -5,7 +5,7 @@ url="http://127.0.0.1:8000/tasks"
 task_data = {
     "title": "Tarea completa",
     "description": "comprueba post funciona",
-    "deadline": "2029-12-12",
+    "deadline": "2025-12-12",
     "completed": True
 }
 
