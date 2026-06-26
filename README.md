@@ -36,7 +36,7 @@ No recibe parámetros.
 
 ## `GET /tasks`
 
-Devuelve todas las tareas almacenadas en la base de datos.
+Devuelve todas las tareas almacenadas en memoria.
 
 ### URL
 

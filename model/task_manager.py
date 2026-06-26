@@ -75,13 +75,18 @@ class TaskManager:
 
     def put_completed_task(self, id: int):
         task_to_update = self.__get_task_by_id(id)
+
+        if task_to_update is None:
+            logs.error(f"Task with id:{id} doesn't exist")
+            raise HTTPException(status_code=404, detail=f"Task with id:{id} doesn't exist")
+
         if task_to_update["completed"]:
             logs.error(f"Task with id:{id} already finished")
             raise HTTPException(status_code=400, detail=f"Task with id:{id} already finished")
 
         task_to_update["completed"] = True
         logs.info(f"Task with id:{id} marked as finished")
-        return {f"Task with id:{id} marked as finished"}
+        return {f"msg": "Task with id:{id} marked as finished"}
 
     def delete_task(self, id: int):
         task_to_delete = self.__get_task_by_id(id)
@@ -91,7 +96,7 @@ class TaskManager:
         self.__tasks.remove(task_to_delete)
         logs.info(f"Task with id:{id} deleted")
 
-        return {f"Task with id:{id} deleted"}
+        return {"msg": f"Task with id:{id} deleted"}
 
     def __get_task_by_id(self, id: int):
         for task in self.__tasks:
