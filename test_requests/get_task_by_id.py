@@ -4,7 +4,8 @@ id = 2
 
 url=f"http://127.0.0.1:8000/tasks/{id}"
 
-response = requests.get(url)
-assert(response.status_code == 200)
-print(f"status code: {response.status_code}")
-print(f"msg: {response.json()}")
+def get_task_by_id():
+    response = requests.get(url)
+    assert(response.status_code == 200)
+    print(f"status code: {response.status_code}")
+    print(f"msg: {response.json()}")

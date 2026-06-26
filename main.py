@@ -1,15 +1,10 @@
 from fastapi import FastAPI
 
-from model.db import Base, engine
-from controller.controller import router
-
-from model.db import logs 
-
-Base.metadata.create_all(bind=engine)
-logs.info("Database table created")
+import controller.controller as controller
+from model.task_manager import logs
 
 app = FastAPI()
-app.include_router(router)
+app.include_router(controller.router)
 
 @app.get("/")
 def root():

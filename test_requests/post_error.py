@@ -11,7 +11,8 @@ task_data = {
     "completed": True
 }
 
-response = requests.post(url, json=task_data)
-assert(response.status_code == 400)
-print(f"status code: {response.status_code}")
-print(f"msg: {response.json()}")
+def post_error():
+    response = requests.post(url, json=task_data)
+    assert(response.status_code == 400)
+    print(f"status code: {response.status_code}")
+    print(f"msg: {response.json()}")
