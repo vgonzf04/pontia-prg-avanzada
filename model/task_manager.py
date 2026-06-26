@@ -86,7 +86,7 @@ class TaskManager:
 
         task_to_update["completed"] = True
         logs.info(f"Task with id:{id} marked as finished")
-        return {f"msg": "Task with id:{id} marked as finished"}
+        return {"msg": f"Task with id:{id} marked as finished"}
 
     def delete_task(self, id: int):
         task_to_delete = self.__get_task_by_id(id)

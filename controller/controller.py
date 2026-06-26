@@ -1,4 +1,3 @@
-import requests
 from fastapi import APIRouter, Response, status
 
 from model.task import Task
@@ -10,11 +9,9 @@ router = APIRouter()
 def get_tasks():
     return task_manager.get_tasks()
 
-@router.post("/tasks")
+@router.post("/tasks", status_code=status.HTTP_201_CREATED)
 def create_task(task: Task, response: Response):
-    task_manager.post_task(task)
-    response.status_code = status.HTTP_201_CREATED
-    return task
+    return task_manager.post_task(task)
 
 @router.get("/tasks/expired")
 def get_expired_tasks():
